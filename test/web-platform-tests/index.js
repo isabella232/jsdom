@@ -31,7 +31,7 @@ const runWebPlatformTest = require("./run-web-platform-test")(exports, path.reso
   "dom/nodes/getElementsByClassName-07.htm",
   "dom/nodes/getElementsByClassName-08.htm",
   "dom/nodes/getElementsByClassName-09.htm",
-  "dom/nodes/getElementsByClassName-10.xml",
+  // "dom/nodes/getElementsByClassName-10.xml", // XML class attribute and localName and namespaces don't work well
   // "dom/nodes/getElementsByClassName-11.xml", // XML class attribute and localName and namespaces don't work well
   "dom/nodes/getElementsByClassName-12.htm",
   "dom/nodes/getElementsByClassName-13.htm",
@@ -113,20 +113,16 @@ const runWebPlatformTest = require("./run-web-platform-test")(exports, path.reso
   "dom/events/Event-dispatch-reenter.html",
   "dom/events/Event-dispatch-target-moved.html",
   "dom/events/Event-dispatch-target-removed.html",
-  "dom/events/Event-initEvent.html",
   "dom/events/Event-propagation.html",
   "dom/events/Event-type.html",
-  "dom/events/Event-type-empty.html",
   "dom/events/EventTarget-addEventListener.html",
   "dom/events/EventTarget-dispatchEvent-returnvalue.html",
   "dom/events/EventTarget-dispatchEvent.html",
   "dom/events/EventTarget-removeEventListener.html",
-  "dom/events/ProgressEvent.html",
 
   "DOMEvents/ClickFakeEvent.nondocument.html",
   "DOMEvents/event-phases-order.html",
   "DOMEvents/throwing-in-listener-and-window-error-event.html",
-  "DOMEvents/throwing-in-listener-when-all-have-not-run-yet.html",
 
   "FileAPI/fileReader.html",
   "FileAPI/blob/Blob-slice.html",

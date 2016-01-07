@@ -314,11 +314,10 @@ t => {
 };
 
 exports["Only elements with specific tag names may be returned if their name attribute matches"] = t => {
-  t.expect(7 * 2);
   const doc = jsdom.jsdom();
   const window = doc.defaultView;
-  const tags = ["a", "applet", "area", "embed", "form", "frameset", "img",
-                "A", "APPLET", "AREA", "EMBED", "FORM", "FRAMESET", "IMG"];
+  const tags = ["a", "applet", "area", "embed", "form", "frameset", "img", "object",
+                "A", "APPLET", "AREA", "EMBED", "FORM", "FRAMESET", "IMG", "OBJECT"];
 
   for (const tagName of tags) {
     const element = doc.createElement(tagName);

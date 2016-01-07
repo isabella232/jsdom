@@ -746,7 +746,7 @@ exports.tests = {
     test.equal(nodeList.length, 1, 'Asize');
     testNode = nodeList.item(0);
     vcodebase = testNode.codeBase;
-    test.equal(vcodebase, toFileUrl("html/files/applets"), "codebase");
+    test.equal(vcodebase, "applets", "codebase");
     test.done();
   },
 
@@ -911,7 +911,7 @@ exports.tests = {
     test.equal(nodeList.length, 1, 'Asize');
     testNode = nodeList.item(0);
     vobject = testNode.object;
-    test.equal(vobject, toFileUrl("html/files/DOMTSApplet.dat"), "object");
+    test.equal(vobject, "DOMTSApplet.dat", "object");
     test.done();
   },
 
@@ -1011,7 +1011,7 @@ exports.tests = {
     var doc = load("area");
     var nodeList = doc.getElementsByTagName("area");
     test.equal(nodeList.length, 1, 'Asize');
-    test.equal(nodeList.item(0).href, toFileUrl('html/files/files/dletter.html'), 'hrefLink');
+    test.equal(nodeList.item(0).href, './files/dletter.html', 'hrefLink');
     test.done();
   },
 
@@ -1202,6 +1202,87 @@ exports.tests = {
     testNode = nodeList.item(0);
     vtarget = testNode.target;
     test.equal(vtarget, "Frame1", "targetLink");
+    test.done();
+  },
+
+  /**
+   *
+   The color attribute specifies the base font's color.
+   Retrieve the color attribute and examine its value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-87502302
+   */
+  HTMLBaseFontElement01: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vcolor;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("basefont");
+    nodeList = doc.getElementsByTagName("basefont");
+    test.equal(nodeList.length, 1, 'Asize');
+    testNode = nodeList.item(0);
+    vcolor = testNode.color;
+    test.equal(vcolor, "#000000", "colorLink");
+    test.done();
+  },
+
+  /**
+   *
+   The face attribute specifies the base font's face identifier.
+   Retrieve the face attribute and examine its value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-88128969
+   */
+  HTMLBaseFontElement02: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vface;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("basefont");
+    nodeList = doc.getElementsByTagName("basefont");
+    test.equal(nodeList.length, 1, 'Asize');
+    testNode = nodeList.item(0);
+    vface = testNode.face;
+    test.equal(vface, "arial,helvitica", "faceLink");
+    test.done();
+  },
+
+  /**
+   *
+   The size attribute specifies the base font's size.
+   Retrieve the size attribute and examine it's value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-38930424
+   */
+  HTMLBaseFontElement03: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vsize;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("basefont");
+    nodeList = doc.getElementsByTagName("basefont");
+    test.equal(nodeList.length, 1, 'Asize');
+    testNode = nodeList.item(0);
+    vsize = testNode.size;
+    test.equal(vsize, 4, "sizeLink");
     test.done();
   },
 
@@ -2145,6 +2226,31 @@ exports.tests = {
     vreferrer = doc.referrer;
     test.equal(vreferrer, "http://www.example.com", "referrerLink");
 
+    test.done();
+  },
+
+  /**
+   *
+   The domain attribute specifies the domain name of the server that served
+   the document, or null if the server cannot be identified by a domain name.
+   Retrieve the domain attribute and examine its value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-2250147
+   */
+  HTMLDocument03: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vdomain;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("document");
+    vdomain = doc.domain;
+    test.equal(vdomain, "", "domainLink");
     test.done();
   },
 
@@ -7174,7 +7280,7 @@ exports.tests = {
     test.equal(nodeList.length, 2, 'Asize');
     testNode = nodeList.item(0);
     vsrc = testNode.src;
-    test.equal(vsrc, toFileUrl('html/files/img/right.png'), 'srcLink');
+    test.equal(vsrc, './img/right.png', 'srcLink');
     test.done();
   },
 
@@ -7373,6 +7479,33 @@ exports.tests = {
     testNode = nodeList.item(0);
     vwidth = testNode.width;
     test.equal(vwidth, "400", "widthLink");
+    test.done();
+  },
+
+  /**
+   *
+   The profile attribute specifies a URI designating a metadata profile.
+   Retrieve the profile attribute and examine its value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-96921909
+   */
+  HTMLHeadElement01: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vprofile;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("head");
+    nodeList = doc.getElementsByTagName("head");
+    test.equal(nodeList.length, 1, 'Asize');
+    testNode = nodeList.item(0);
+    vprofile = testNode.profile;
+    test.equal(vprofile, 'http://www.w3.org/2004/07/profile', 'profileLink');
     test.done();
   },
 
@@ -7816,7 +7949,7 @@ exports.tests = {
     test.equal(nodeList.length, 1, 'Asize');
     testNode = nodeList.item(0);
     vsrc = testNode.src;
-    test.equal(vsrc, toFileUrl('html/files/img/right.png'), 'srcLink');
+    test.equal(vsrc, './img/right.png', 'srcLink');
     test.done();
   },
 
@@ -9132,6 +9265,33 @@ exports.tests = {
 
   /**
    *
+   The disabled attribute enables/disables the link.
+   Retrieve the disabled attribute and examine its value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-87355129
+   */
+  HTMLLinkElement01: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vdisabled;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("link");
+    nodeList = doc.getElementsByTagName("link");
+    test.equal(nodeList.length, 2, 'Asize');
+    testNode = nodeList.item(1);
+    vdisabled = testNode.disabled;
+    test.equal(vdisabled, false, 'vdisabled should be *false*');
+    test.done();
+  },
+
+  /**
+   *
    The charset attribute indicates the character encoding of the linked
    resource.
    Retrieve the charset attribute and examine its value.
@@ -9181,7 +9341,7 @@ exports.tests = {
     test.equal(nodeList.length, 2, 'Asize');
     testNode = nodeList.item(0);
     vhref = testNode.href;
-    test.equal(vhref, toFileUrl('html/files/files/glossary.html'), 'hrefLink');
+    test.equal(vhref, './files/glossary.html', 'hrefLink');
     test.done();
   },
 
@@ -9957,7 +10117,7 @@ exports.tests = {
     test.equal(nodeList.length, 2, 'Asize');
     testNode = nodeList.item(0);
     vdata = testNode.data;
-    test.equal(vdata, toFileUrl('html/files/pix/logo.gif'), 'dataLink');
+    test.equal(vdata, './pix/logo.gif', 'dataLink');
     test.done();
   },
 
@@ -11282,7 +11442,7 @@ exports.tests = {
     test.equal(nodeList.length, 1, 'Asize');
     testNode = nodeList.item(0);
     vsrc = testNode.src;
-    test.equal(vsrc, toFileUrl('html/files/js/script1.js'), 'srcLink');
+    test.equal(vsrc, './js/script1.js', 'srcLink');
     test.done();
   },
 
@@ -12018,6 +12178,33 @@ exports.tests = {
       }
       test.ok(success, 'throw_NOT_FOUND_ERR');
     }
+    test.done();
+  },
+
+  /**
+   *
+   The disabled attribute enables/disables the stylesheet.
+   Retrieve the disabled attribute and examine its value.
+   * @author NIST
+   * @author Mary Brady
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-51162010
+   */
+  HTMLStyleElement01: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vdisabled;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("style");
+    nodeList = doc.getElementsByTagName("style");
+    test.equal(nodeList.length, 1, 'Asize');
+    testNode = nodeList.item(0);
+    vdisabled = testNode.disabled;
+    test.equal(vdisabled, false, 'vdisabled should be *false*');
     test.done();
   },
 
@@ -17244,6 +17431,32 @@ exports.tests = {
 
   /**
    *
+   The value of attribute color of the basefont element is read and checked against the expected value.
+   * @author Netscape
+   * @author Sivakiran Tummala
+   * @see http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-87502302
+   */
+  basefont01: function(test) {
+    var success;
+    var nodeList;
+    var testNode;
+    var vcolor;
+    var doc;
+    var docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("basefont");
+    nodeList = doc.getElementsByTagName("basefont");
+    test.equal(nodeList.length, 1, 'Asize');
+    testNode = nodeList.item(0);
+    vcolor = testNode.color;
+    test.equal(vcolor, "#000000", "colorLink");
+    test.done();
+  },
+
+  /**
+   *
    Color of active links (after mouse-button down, but before mouse-button up).
    The value of attribute alink of the body element is read and checked against the expected value.
    * @author Netscape
@@ -17833,7 +18046,7 @@ exports.tests = {
     test.equal(nodeList.length, 2, 'Asize');
     testNode = nodeList.item(0);
     vdata = testNode.data;
-    test.equal(vdata, toFileUrl("html/files/pix/logo.gif"), "dataLink");
+    test.equal(vdata, "./pix/logo.gif", "dataLink");
     test.done();
   },
 
@@ -19371,6 +19584,21 @@ exports.tests = {
     test.done();
   },
 
+  document_write_before_loaded: function(test) {
+    var anchor, doc, docRef = null;
+    if (typeof(this.doc) != 'undefined') {
+      docRef = this.doc;
+    }
+    doc = load("anchor");
+    doc.write("<html><body><p><a id='Anchor'>Anchor Text</a></body></html>");
+    doc.close();
+    anchor = doc.getElementById("Anchor");
+    doc.readyState = 'loading';
+    doc.write("hello world");
+    test.equal(anchor.innerHTML, 'hello world', "#Anchor's innerHTML should be set");
+    test.done();
+  },
+
   event_default_action: function(test) {
     var success;
     var doc;
@@ -19388,8 +19616,13 @@ exports.tests = {
     a.addEventListener("foo", function() {}, true);
     evt = doc.createEvent("Events");
     evt.initEvent("foo",false,false);
+
+    a._eventDefaults['foo'] = function(event) {
+      performedDefault = true;
+    };
     canceled = !a.dispatchEvent(evt);
     test.equal(canceled, false, 'canceled should be *false*');
+    test.ok(performedDefault, 'performedDefault');
     test.done();
   },
 

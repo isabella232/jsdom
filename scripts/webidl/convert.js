@@ -6,7 +6,6 @@ const readdirRecursive = require("fs-readdir-recursive");
 const webidl2js = require("webidl2js");
 
 const outputDir = path.resolve(__dirname, "../../lib/jsdom/living/generated/");
-Q.longStackSupport = true;
 
 function readConcatenatedSource(files) {
   return Q.all(files.map(f => {
@@ -47,6 +46,5 @@ function onlyIDL(filePath) {
   return path.extname(filePath) === ".idl";
 }
 
-doConversion(path.resolve(__dirname, "../../lib/jsdom/living/attributes")).done();
 doConversion(path.resolve(__dirname, "../../lib/jsdom/living/events")).done();
-doConversion(path.resolve(__dirname, "../../lib/jsdom/living/nodes")).done();
+doConversion(path.resolve(__dirname, "../../lib/jsdom/living/attributes")).done();
